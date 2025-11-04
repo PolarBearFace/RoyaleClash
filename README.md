@@ -8,7 +8,7 @@ This is a clash royale rip off, made for fun while at school. Only contains (wil
 </ul>
 In progress features:
 <ul>
-  <li>Finishing enemy death</li>
+  <li>Finishing enemy death (Done but not added to GH)</li>
   <li>Automatic enemy killing</li>
   <li>Enemy movement</li>
   <li>Working castles</li>
