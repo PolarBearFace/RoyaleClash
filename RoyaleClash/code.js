@@ -34,19 +34,19 @@ const cards = {
 	},
 	minipekka: {
 		maxHP: 817,
-		damage: 0,
+		damage: 90,
 		speed: 10,
-		attackSpeed: 0,
-		range: 0,
+		attackSpeed: 0.8,
+		range: 20,
 		cost: 4,
 		summonTime: 2
 	},
 	megaknight: {
 		maxHP: 2400,
-		damage: 0,
+		damage: 100,
 		speed: 10,
-		attackSpeed: 0,
-		range: 0,
+		attackSpeed: 1.0,
+		range: 30,
 		cost: 7,
 		summonTime: 3
 	},
@@ -54,8 +54,8 @@ const cards = {
 		maxHP: 690,
 		damage: 50,
 		speed: 10,
-		attackSpeed: 0,
-		range: 0,
+		attackSpeed: 0.5,
+		range: 20,
 		cost: 3,
 		summonTime: 1.5
 	}
@@ -114,7 +114,7 @@ const global = {
 	}
 }
 
-let elixir = 0, elixirGain = 1, timer = 180, overtime = 0, time = 50;
+let elixir = 0, elixirGain = 10, timer = 180, overtime = 0, time = 50;
 let redCrowns = 0, blueCrowns = 0, totalCrowns = 0;
 let inGame = false;
 const counters = {
@@ -284,7 +284,7 @@ function styleElement(x, y, image, name, team){
 
 //The return false allows card placement wherever, just comment it out to make it work normally
 function outBlueBounds(x,y){
-	return false;
+	//return false;
 	return (parseInt(y,10) < 340 || parseInt(y,10) > 570 || parseInt(x,10) < 580 || parseInt(x,10) > 920);
 }
 
@@ -453,20 +453,7 @@ function getSpeed(element,team){
 
 function blueMoveToTarget(element){
 	if(element == null){return;}
-	let closestId = redOnField.castles.ids[0];
-	let closest = findDistance(element,redOnField.castles.ids[0]);
-	for(i=0;i<redOnField.castles.ids.length;i++){
-		if(closest > findDistance(element,redOnField.castles.ids[i])){closest = findDistance(element,redOnField.castles.ids[i]); closestId = redOnField.castles.ids[i];}
-	}
-	for(i=0;i<redOnField.knight.ids.length;i++){
-		if(closest > findDistance(element,redOnField.knight.ids[i])){closest = findDistance(element,redOnField.knight.ids[i]); closestId = redOnField.knight.ids[i];}
-	}
-	for(i=0;i<redOnField.megaknight.ids.length;i++){
-		if(closest > findDistance(element,redOnField.megaknight.ids[i])){closest = findDistance(element,redOnField.megaknight.ids[i]); closestId = redOnField.megaknight.ids[i];}
-	}
-	for(i=0;i<redOnField.minipekka.ids.length;i++){
-		if(closest > findDistance(element,redOnField.minipekka.ids[i])){closest = findDistance(element,redOnField.minipekka.ids[i]); closestId = redOnField.minipekka.ids[i];}
-	}
+	let closestId = getClosest(element,'blue');
 	
 	const ogy = parseInt(element.style.top,10), ogx = parseInt(element.style.left,10);
 	let targetX = parseInt(closestId.style.left), targetY = parseInt(closestId.style.top);
@@ -492,7 +479,8 @@ function attack(element,target,team){
 	const targetName = getName(target);
 	const attackerNum = parseInt(element.id.replace(/[^0-9\s\/?]/g, ''));
 	const targetNum = parseInt(target.id.replace(/[^0-9\s\/?]/g, ''));
-	const attackerDamage = getDamage(attackerName);
+	const attackSpeed = getAttkSpeed(attackerName);
+	const attackerDamage = getDamage(attackerName)/(time*attackSpeed);
 	let health = 0;
 	if(targetName == 'knight' && team == 'blue'){redOnField.knight.HP[targetNum-1] -= attackerDamage; health = redOnField.knight.HP[targetNum-1]}
 	if(targetName == 'megaknight' && team == 'blue'){redOnField.megaknight.HP[targetNum-1] -= attackerDamage; health = redOnField.knight.HP[targetNum-1]}
@@ -503,6 +491,12 @@ function attack(element,target,team){
 	if(targetName == 'minipekka' && team == 'red'){blueOnField.minipekka.HP[targetNum-1] -= attackerDamage; health = blueOnField.minipekka.HP[targetNum-1]}
 	const notTeam = team == 'blue' ? 'red' : 'blue'
 	if(health <= 0){removeCard(targetName,targetNum-1,notTeam);}
+}
+
+function getAttkSpeed(name){
+	if(name == 'knight'){return cards.knight.attackSpeed;}
+	if(name == 'megaknight'){return cards.megaknight.attackSpeed;}
+	if(name == 'minipekka'){return cards.minipekka.attackSpeed;}
 }
 
 function getDamage(name){
@@ -524,23 +518,62 @@ function getHealth(name,index,team){
 	if(name == 'minipekka' && team == 'red'){return redOnField.minipekka.HP[index];}
 }
 */
-function debugAttack(){
-	attack(blueOnField.knight.ids[0],redOnField.knight.ids[0],'blue');
+function checkAttacks(){
+	for(i=0;i<blueOnField.knight.ids.length;i++){
+		if(blueOnField.knight.ids[i] == null){continue;}
+		if(findDistance(blueOnField.knight.ids[i], getClosest(blueOnField.knight.ids[i],'blue')) <= getRange(blueOnField.knight.ids[i])){
+			attack(blueOnField.knight.ids[i],getClosest(blueOnField.knight.ids[i],'blue'),'blue');
+		} 
+	}
+	for(i=0;i<blueOnField.megaknight.ids.length;i++){
+		if(blueOnField.megaknight.ids[i] == null){continue;}
+		if(findDistance(blueOnField.megaknight.ids[i], getClosest(blueOnField.megaknight.ids[i],'blue')) <= getRange(blueOnField.megaknight.ids[i])){
+			attack(blueOnField.megaknight.ids[i],getClosest(blueOnField.megaknight.ids[i],'blue'),'blue');
+		} 
+	}
+	for(i=0;i<blueOnField.minipekka.ids.length;i++){
+		if(blueOnField.minipekka.ids[i] == null){continue;}
+		if(findDistance(blueOnField.minipekka.ids[i], getClosest(blueOnField.minipekka.ids[i],'blue')) <= getRange(blueOnField.minipekka.ids[i])){
+			attack(blueOnField.minipekka.ids[i],getClosest(blueOnField.minipekka.ids[i],'blue'),'blue');
+		} 
+	}
 }
 
-function checkAttacks(){
-	
+function getClosest(element,team){
+	let closestId = redOnField.castles.ids[0];
+	if(team=='blue'){
+		let closest = findDistance(element,redOnField.castles.ids[0]);
+		for(i=0;i<redOnField.castles.ids.length;i++){
+			if(closest > findDistance(element,redOnField.castles.ids[i])){closest = findDistance(element,redOnField.castles.ids[i]); closestId = redOnField.castles.ids[i];}
+		}
+		for(i=0;i<redOnField.knight.ids.length;i++){
+			if(closest > findDistance(element,redOnField.knight.ids[i])){closest = findDistance(element,redOnField.knight.ids[i]); closestId = redOnField.knight.ids[i];}
+		}
+		for(i=0;i<redOnField.megaknight.ids.length;i++){
+			if(closest > findDistance(element,redOnField.megaknight.ids[i])){closest = findDistance(element,redOnField.megaknight.ids[i]); closestId = redOnField.megaknight.ids[i];}
+		}
+		for(i=0;i<redOnField.minipekka.ids.length;i++){
+			if(closest > findDistance(element,redOnField.minipekka.ids[i])){closest = findDistance(element,redOnField.minipekka.ids[i]); closestId = redOnField.minipekka.ids[i];}
+		}
+	}
+	return closestId;
+}
+
+function getRange(element){
+	name = getName(element)
+	if(name=='knight'){return cards.knight.range}
+	if(name=='megaknight'){return cards.megaknight.range}
+	if(name=='minipekka'){return cards.minipekka.range}
 }
 
 function removeCard(name,number,team){
-	if(name == 'knight' && team == 'blue'){blueOnField.knight.ids[number] = null;}
-	if(name == 'megaknight' && team == 'blue'){blueOnField.megaknight.ids[number] = null;}
-	if(name == 'minipekka' && team == 'blue'){blueOnField.minipekka.ids[number] = null;}
+	if(name == 'knight' && team == 'blue'){blueOnField.knight.ids[number].remove(); blueOnField.knight.ids[number] = null;}
+	if(name == 'megaknight' && team == 'blue'){blueOnField.megaknight.ids[number].remove(); blueOnField.megaknight.ids[number] = null;}
+	if(name == 'minipekka' && team == 'blue'){blueOnField.minipekka.ids[number].remove(); blueOnField.minipekka.ids[number] = null;}
 	
-	if(name == 'knight' && team == 'red'){redOnField.knight.ids[number] = null;}
-	if(name == 'megaknight' && team == 'red'){redOnField.megaknight.ids[number] = null;}
-	if(name == 'minipekka' && team == 'red'){redOnField.minipekka.ids[number] = null;}
-	alert(redOnField.knight.ids[number])
+	if(name == 'knight' && team == 'red'){redOnField.knight.ids[number].remove(); redOnField.knight.ids[number] = null;}
+	if(name == 'megaknight' && team == 'red'){redOnField.megaknight.ids[number].remove(); redOnField.megaknight.ids[number] = null;}
+	if(name == 'minipekka' && team == 'red'){redOnField.minipekka.ids[number].remove(); redOnField.minipekka.ids[number] = null;}
 }
 
 //Adds castles
