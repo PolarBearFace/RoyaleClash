@@ -9,7 +9,7 @@ This is a clash royale rip off, made for fun while at school. Only contains (wil
 In progress features:
 <ul>
   <li>Finishing enemy death (Done but not added to GH)</li>
-  <li>Automatic enemy killing</li>
+  <li>Automatic enemy killing (knights can but not others)</li>
   <li>Enemy movement</li>
   <li>Working castles</li>
   <li>Spawn timers</li>
