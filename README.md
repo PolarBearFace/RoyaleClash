@@ -5,15 +5,17 @@ This is a clash royale rip off, made for fun while at school. Only contains (wil
   <li>Enemy Castles and manual enemy placement</li>
   <li>Enemy Death (mostly)</li>
   <li>Manual enemy killing</li>
+  <li>Finishing enemy death</li>
+  <li>Automatic enemy killing</li>
 </ul>
 In progress features:
 <ul>
-  <li>Finishing enemy death (Done but not added to GH)</li>
-  <li>Automatic enemy killing (knights can but not others)</li>
   <li>Enemy movement</li>
   <li>Working castles</li>
+  <li>Making everything so far work for enemy team</li>
   <li>Spawn timers</li>
   <li>winning/losing</li>
   <li>Enenmy Auto card placement</li>
+  <li>Adding the remaining cards</li>
 </ul>
 Expected to be done in 2-3 weeks (hopefully before december)
