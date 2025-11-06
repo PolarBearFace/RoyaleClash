@@ -504,20 +504,7 @@ function getDamage(name){
 	if(name == 'megaknight'){return cards.megaknight.damage;}
 	if(name == 'minipekka'){return cards.minipekka.damage;}
 }
-/*
-//DISCONTINUDED
-function getHealth(name,index,team){
-	//Adjusted because unit numbers start at zero and indexes begin at one
-	index -= 1;
-	if(name == 'knight' && team == 'blue'){return blueOnField.knight.HP[index];}
-	if(name == 'megaknight' && team == 'blue'){return blueOnField.megaknight.HP[index];}
-	if(name == 'minipekka' && team == 'blue'){return blueOnField.minipekka.HP[index];}
-	
-	if(name == 'knight' && team == 'red'){return redOnField.knight.HP[index];}
-	if(name == 'megaknight' && team == 'red'){return redOnField.megaknight.HP[index];}
-	if(name == 'minipekka' && team == 'red'){return redOnField.minipekka.HP[index];}
-}
-*/
+
 function checkAttacks(){
 	for(i=0;i<blueOnField.knight.ids.length;i++){
 		if(blueOnField.knight.ids[i] == null){continue;}
