@@ -1,4 +1,4 @@
-This is a clash royale rip off, made for fun while at school. Only contains (will contain) 8 cards, and has a computer opponent. <br>Current version includes:
+This is a clash royale rip off, made for fun while at school. Only contains (will contain) 8 cards, and has a computer opponent. <br><strong>It seems to be completely and totally broken and I'm not sure why</strong><br>Current version includes:
 <ul>
   <li>3 cards: knight, megaknight, minipekka</li>
   <li>Pathfinding</li>
