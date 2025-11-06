@@ -10,7 +10,7 @@ This is a clash royale rip off, made for fun while at school. Only contains (wil
 </ul>
 In progress features:
 <ul>
-  <li>Enemy movement</li>
+  <li>Enemy movement (sorta working)</li>
   <li>Working castles</li>
   <li>Making everything so far work for enemy team</li>
   <li>Spawn timers</li>
