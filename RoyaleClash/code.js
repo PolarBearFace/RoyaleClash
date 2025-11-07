@@ -21,14 +21,14 @@ const cards = {
 			maxHP: 2400,
 			damage: 50,
 			speed: null,
-			attackSpeed: 0,
+			attackSpeed: 0.9,
 			range: 0
 		},
 		princess: {
 			maxHP: 1400,
 			damage: 50,
 			speed: null,
-			attackSpeed: 0,
+			attackSpeed: 1.0,
 			range: 0
 		}
 	},
@@ -110,7 +110,7 @@ const global = {
 		blueRight: [875,345],
 		blueLeft: [650,345],
 		redRight: [875,305],
-		redLeft: [650,305]
+		redLeft: [600,305]
 	}
 }
 
@@ -255,29 +255,28 @@ function styleElement(x, y, image, name, team){
 	element.draggable = false;
 	element.style.position = 'absolute';
 	divs.game.appendChild(element);
-	element.id = name + (blueOnField.knight.ids.length + 1);
-	if(team=='blue' && name == 'knight'){blueOnField.knight.ids.push(element);}
-	if(team=='blue' && name == 'megaknight'){blueOnField.megaknight.ids.push(element);}
-	if(team=='blue' && name == 'minipekka'){blueOnField.minipekka.ids.push(element);}
-	if(team=='blue' && name == 'PLACEHOLDER'){blueOnField.PLACEHOLDER.ids.push(element);}
-	if(team=='blue' && name == 'PLACEHOLDER'){blueOnField.PLACEHOLDER.ids.push(element);}
-	if(team=='blue' && name == 'PLACEHOLDER'){blueOnField.PLACEHOLDER.ids.push(element);}
-	if(team=='blue' && name == 'PLACEHOLDER'){blueOnField.PLACEHOLDER.ids.push(element);}
-	if(team=='blue' && name == 'PLACEHOLDER'){blueOnField.PLACEHOLDER.ids.push(element);}
-	if(team=='blue' && name == 'castleKing'){blueOnField.castles.ids.push(element);}
-	if(team=='blue' && name == 'castlePrincess'){blueOnField.castles.ids.push(element);}
+	if(team=='blue' && name == 'knight'){element.id=team+name+(blueOnField.knight.ids.length+1);blueOnField.knight.ids.push(element);}
+	if(team=='blue' && name == 'megaknight'){element.id=team+name+(blueOnField.megaknight.ids.length+1);blueOnField.megaknight.ids.push(element);}
+	if(team=='blue' && name == 'minipekka'){element.id=team+name+(blueOnField.minipekka.ids.length+1);blueOnField.minipekka.ids.push(element);}
+	if(team=='blue' && name == 'PLACEHOLDER'){element.id=team+name+(blueOnField.PLACEHOLDER.ids.length+1);blueOnField.PLACEHOLDER.ids.push(element);}
+	if(team=='blue' && name == 'PLACEHOLDER'){element.id=team+name+(blueOnField.PLACEHOLDER.ids.length+1);blueOnField.PLACEHOLDER.ids.push(element);}
+	if(team=='blue' && name == 'PLACEHOLDER'){element.id=team+name+(blueOnField.PLACEHOLDER.ids.length+1);blueOnField.PLACEHOLDER.ids.push(element);}
+	if(team=='blue' && name == 'PLACEHOLDER'){element.id=team+name+(blueOnField.PLACEHOLDER.ids.length+1);blueOnField.PLACEHOLDER.ids.push(element);}
+	if(team=='blue' && name == 'PLACEHOLDER'){element.id=team+name+(blueOnField.PLACEHOLDER.ids.length+1);blueOnField.PLACEHOLDER.ids.push(element);}
+	if(team=='blue' && name == 'castleKing'){element.id=team+name+(blueOnField.castles.ids.length+1);blueOnField.castles.ids.push(element);}
+	if(team=='blue' && name == 'castlePrincess'){element.id=team+name+(blueOnField.castles.ids.length+1);blueOnField.castles.ids.push(element);}
 	
-	if(team=='red' && name == 'knight'){redOnField.knight.ids.push(element);}
-	if(team=='red' && name == 'megaknight'){redOnField.megaknight.ids.push(element);}
-	if(team=='red' && name == 'minipekka'){redOnField.minipekka.ids.push(element);}
-	if(team=='red' && name == 'PLACEHOLDER'){redOnField.PLACEHOLDER.ids.push(element);}
-	if(team=='red' && name == 'PLACEHOLDER'){redOnField.PLACEHOLDER.ids.push(element);}
-	if(team=='red' && name == 'PLACEHOLDER'){redOnField.PLACEHOLDER.ids.push(element);}
-	if(team=='red' && name == 'PLACEHOLDER'){redOnField.PLACEHOLDER.ids.push(element);}
-	if(team=='red' && name == 'PLACEHOLDER'){redOnField.PLACEHOLDER.ids.push(element);}
-	if(team=='red' && name == 'castleKing'){redOnField.castles.ids.push(element);}
-	if(team=='red' && name == 'castlePrincess'){redOnField.castles.ids.push(element);}
-
+	if(team=='red' && name == 'knight'){element.id=team+name+(redOnField.knight.ids.length+1);redOnField.knight.ids.push(element);}
+	if(team=='red' && name == 'megaknight'){element.id=team+name+(redOnField.megaknight.ids.length+1);redOnField.megaknight.ids.push(element);}
+	if(team=='red' && name == 'minipekka'){element.id=team+name+(redOnField.minipekka.ids.length+1);redOnField.minipekka.ids.push(element);}
+	if(team=='red' && name == 'PLACEHOLDER'){element.id=team+name+(redOnField.PLACEHOLDER.ids.length+1);redOnField.PLACEHOLDER.ids.push(element);}
+	if(team=='red' && name == 'PLACEHOLDER'){element.id=team+name+(redOnField.PLACEHOLDER.ids.length+1);redOnField.PLACEHOLDER.ids.push(element);}
+	if(team=='red' && name == 'PLACEHOLDER'){element.id=team+name+(redOnField.PLACEHOLDER.ids.length+1);redOnField.PLACEHOLDER.ids.push(element);}
+	if(team=='red' && name == 'PLACEHOLDER'){element.id=team+name+(redOnField.PLACEHOLDER.ids.length+1);redOnField.PLACEHOLDER.ids.push(element);}
+	if(team=='red' && name == 'PLACEHOLDER'){element.id=team+name+(redOnField.PLACEHOLDER.ids.length+1);redOnField.PLACEHOLDER.ids.push(element);}
+	if(team=='red' && name == 'castleKing'){element.id=team+name+(redOnField.castles.ids.length+1);redOnField.castles.ids.push(element);}
+	if(team=='red' && name == 'castlePrincess'){element.id=team+name+(redOnField.castles.ids.length+1);redOnField.castles.ids.push(element);}
+	
 	debug.labels.name.textContent = name;
 	addStats(name,team);
 }
@@ -290,7 +289,7 @@ function outBlueBounds(x,y){
 
 function checkIfSameSide(element,team){
 	if(element == null){return;}
-	let closestId = redOnField.castles.ids[0];
+	let closestId = blueOnField.castles.ids[0];
 	if(team=='blue'){
 		let closest = findDistance(element,redOnField.castles.ids[0]);
 		for(i=0;i<redOnField.castles.ids.length;i++){
@@ -304,6 +303,22 @@ function checkIfSameSide(element,team){
 		}
 		for(i=0;i<redOnField.minipekka.ids.length;i++){
 			if(closest > findDistance(element,redOnField.minipekka.ids[i])){closest = findDistance(element,redOnField.minipekka.ids[i]); closestId = redOnField.minipekka.ids[i];}
+		}
+	}
+
+	if(team=='red'){
+		let closest = findDistance(element,blueOnField.castles.ids[0]);
+		for(i=0;i<blueOnField.castles.ids.length;i++){
+			if(closest > findDistance(element,blueOnField.castles.ids[i])){closest = findDistance(element,blueOnField.castles.ids[i]); closestId = blueOnField.castles.ids[i];}
+		}
+		for(i=0;i<blueOnField.knight.ids.length;i++){
+			if(closest > findDistance(element,blueOnField.knight.ids[i])){closest = findDistance(element,blueOnField.knight.ids[i]); closestId = blueOnField.knight.ids[i];}
+		}
+		for(i=0;i<blueOnField.megaknight.ids.length;i++){
+			if(closest > findDistance(element,blueOnField.megaknight.ids[i])){closest = findDistance(element,blueOnField.megaknight.ids[i]); closestId = blueOnField.megaknight.ids[i];}
+		}
+		for(i=0;i<blueOnField.minipekka.ids.length;i++){
+			if(closest > findDistance(element,blueOnField.minipekka.ids[i])){closest = findDistance(element,blueOnField.minipekka.ids[i]); closestId = blueOnField.minipekka.ids[i];}
 		}
 	}
 
@@ -333,15 +348,47 @@ function moveToTarget(element,team){
 		crossBridge(element,team);
 	} else if (checkIfSameSide(element,team) && team=='blue') {
 		blueMoveToTarget(element);
+	} else if (!checkIfSameSide(element,team) && !checkIfAtBridge(element,team) && team=='red'){
+		moveToBridgeRed(element);
+	} else if (checkIfAtBridge(element,team) && team=='red'){
+		crossBridge(element,team);
+	} else if (checkIfSameSide(element,team) && team=='red') {
+		redMoveToTarget(element);
 	}
+}
+
+function checkSide(element,team){
+	if(team == 'blue'){return parseInt(element.style.top) > 355 ? 'blue' : 'red'}
+	if(team == 'red'){return parseInt(element.style.top) < 275 ? 'red' : 'blue'}
 }
 
 function moveToBridgeBlue(element){
 	if(element == null){return;}
+	if(checkSide(element,'blue') != 'blue'){return;}
 	const ogy = parseInt(element.style.top,10), ogx = parseInt(element.style.left,10);
 	let closestBridge = findClosestBridge(element);
 	const name = element.id;
 	let speed = getSpeed(element,'blue');
+	
+	speed = speed == 0 ? 1 : speed;
+
+	let xChange = ogx - closestBridge[0];
+	let yChange = ogy - closestBridge[1];
+
+	xChange = xChange/speed;
+	yChange = yChange/speed;
+
+	element.style.left = (parseInt(element.style.left,10) - xChange) + 'px';
+	element.style.top = (parseInt(element.style.top,10) - yChange) + 'px';
+}
+
+function moveToBridgeRed(element){
+	if(element == null){return;}
+	if(checkSide(element,'red') != 'red'){return;}
+	const ogy = parseInt(element.style.top,10), ogx = parseInt(element.style.left,10);
+	let closestBridge = findClosestBridge(element);
+	const name = element.id;
+	let speed = getSpeed(element,'red');
 	
 	speed = speed == 0 ? 1 : speed;
 
@@ -369,10 +416,10 @@ function findClosestBridge(element){
 }
 
 function debugTick(){
-	debug.lists.knight.textContent = blueOnField.knight.ids;
-	debug.lists.megaknight.textContent = blueOnField.megaknight.ids;
-	debug.lists.minipekka.textContent = blueOnField.minipekka.ids;
-	debug.lists.health.textContent = redOnField.knight.HP;
+	debug.lists.knight.textContent = blueOnField.knight.ids.id;
+	debug.lists.megaknight.textContent = blueOnField.megaknight.ids.id;
+	debug.lists.minipekka.textContent = blueOnField.minipekka.ids.id;
+	debug.lists.health.textContent = blueOnField.castles.HP;
 }
 
 function moveCards(){
@@ -384,13 +431,26 @@ function moveCards(){
 	//for(let i = 0; i < blueOnField.PLACEHOLDER.ids.length; i++){moveToTarget(blueOnField.PLACEHOLDER.ids[i],'blue');}
 	//for(let i = 0; i < blueOnField.PLACEHOLDER.ids.length; i++){moveToTarget(blueOnField.PLACEHOLDER.ids[i],'blue');}
 	//for(let i = 0; i < blueOnField.PLACEHOLDER.ids.length; i++){moveToBridgeBlue(blueOnField.PLACEHOLDER.ids[i],'blue');}
+	
+	for(let i = 0; i < redOnField.knight.ids.length; i++){moveToTarget(redOnField.knight.ids[i],'red');}
+	for(let i = 0; i < redOnField.megaknight.ids.length; i++){moveToTarget(redOnField.megaknight.ids[i],'red');}
+	for(let i = 0; i < redOnField.minipekka.ids.length; i++){moveToTarget(redOnField.minipekka.ids[i],'red');}
+	//for(let i = 0; i < redOnField.PLACEHOLDER.ids.length; i++){moveToTarget(redOnField.PLACEHOLDER.ids[i],'red');}
+	//for(let i = 0; i < redOnField.PLACEHOLDER.ids.length; i++){moveToTarget(redOnField.PLACEHOLDER.ids[i],'red');}
+	//for(let i = 0; i < redOnField.PLACEHOLDER.ids.length; i++){moveToTarget(redOnField.PLACEHOLDER.ids[i],'red');}
+	//for(let i = 0; i < redOnField.PLACEHOLDER.ids.length; i++){moveToTarget(redOnField.PLACEHOLDER.ids[i],'red');}
+	//for(let i = 0; i < redOnField.PLACEHOLDER.ids.length; i++){moveToBridgeRed(redOnField.PLACEHOLDER.ids[i],'red');}
 }
 
 function addStats(name,team){
+	if(team == 'blue' && name == 'castleKing'){blueOnField.castles.HP.push(cards.castle.king.maxHP)}
+	if(team == 'blue' && name == 'castlePrincess'){blueOnField.castles.HP.push(cards.castle.princess.maxHP)}
 	if(team == 'blue' && name == 'knight'){blueOnField.knight.HP.push(cards.knight.maxHP)} 
 	if(team == 'blue' && name == 'megaknight'){blueOnField.megaknight.HP.push(cards.megaknight.maxHP)} 
 	if(team == 'blue' && name == 'minipekka'){blueOnField.minipekka.HP.push(cards.minipekka.maxHP)} 
 
+	if(team == 'red' && name == 'castleKing'){redOnField.castles.HP.push(cards.castle.king.maxHP)}
+	if(team == 'red' && name == 'castlePrincess'){redOnField.castles.HP.push(cards.castle.princess.maxHP)}
 	if(team == 'red' && name == 'knight'){redOnField.knight.HP.push(cards.knight.maxHP)} 
 	if(team == 'red' && name == 'megaknight'){redOnField.megaknight.HP.push(cards.megaknight.maxHP)} 
 	if(team == 'red' && name == 'minipekka'){redOnField.minipekka.HP.push(cards.minipekka.maxHP)} 
@@ -416,9 +476,9 @@ function crossBridge(element,team){
 		side = y >= 355 ? 'blue' : 'red';
 	}
 	if(side == 'blue'&&team=='blue'){
-		y -= speed/10;
+		y -= speed;
 	} else if (side == 'red'&&team=='red'){
-		y += speed/10;
+		y += speed;
 	} else {
 		alert("Error: could not determine 'side' when executing 'crossBridge': "+side);
 	}
@@ -438,16 +498,14 @@ function getSpeed(element,team){
 	if(element == null){return;}
 	const name = element.id;
 	let speed = 0;
-	if(team=='blue'){
-		if(name.includes('knight')){speed = cards.knight.speed}
-		if(name.includes('megaknight')){speed = cards.megaknight.speed}
-		if(name.includes('minipekka')){speed = cards.minipekka.speed}
-		if(name.includes('PLACEHOLDER')){speed = cards.PLACEHOLDER.speed}
-		if(name.includes('PLACEHOLDER')){speed = cards.PLACEHOLDER.speed}
-		if(name.includes('PLACEHOLDER')){speed = cards.PLACEHOLDER.speed}
-		if(name.includes('PLACEHOLDER')){speed = cards.PLACEHOLDER.speed}
-		if(name.includes('PLACEHOLDER')){speed = cards.PLACEHOLDER.speed}
-	}
+	if(name.includes('knight')){speed = cards.knight.speed}
+	if(name.includes('megaknight')){speed = cards.megaknight.speed}
+	if(name.includes('minipekka')){speed = cards.minipekka.speed}
+	if(name.includes('PLACEHOLDER')){speed = cards.PLACEHOLDER.speed}
+	if(name.includes('PLACEHOLDER')){speed = cards.PLACEHOLDER.speed}
+	if(name.includes('PLACEHOLDER')){speed = cards.PLACEHOLDER.speed}
+	if(name.includes('PLACEHOLDER')){speed = cards.PLACEHOLDER.speed}
+	if(name.includes('PLACEHOLDER')){speed = cards.PLACEHOLDER.speed}
 	return speed;
 }
 
@@ -472,6 +530,27 @@ function blueMoveToTarget(element){
 	element.style.top = (parseInt(element.style.top) - yChange) + 'px';
 }
 
+function redMoveToTarget(element){
+	if(element == null){return;}
+	let closestId = getClosest(element,'red');
+	
+	const ogy = parseInt(element.style.top,10), ogx = parseInt(element.style.left,10);
+	let targetX = parseInt(closestId.style.left), targetY = parseInt(closestId.style.top);
+	const name = element.id;
+	let speed = getSpeed(element,'red');
+	
+	speed = speed == 0 ? 1 : speed;
+
+	let xChange = ogx - targetX;
+	let yChange = ogy - targetY;
+
+	xChange = xChange/speed;
+	yChange = yChange/speed;
+
+	element.style.left = (parseInt(element.style.left,10) - xChange) + 'px';
+	element.style.top = (parseInt(element.style.top) - yChange) + 'px';
+}
+
 //team refers to the team attacking
 function attack(element,target,team){
 	if(element == null){return;}
@@ -483,12 +562,14 @@ function attack(element,target,team){
 	const attackerDamage = getDamage(attackerName)/(time*attackSpeed);
 	let health = 0;
 	if(targetName == 'knight' && team == 'blue'){redOnField.knight.HP[targetNum-1] -= attackerDamage; health = redOnField.knight.HP[targetNum-1]}
-	if(targetName == 'megaknight' && team == 'blue'){redOnField.megaknight.HP[targetNum-1] -= attackerDamage; health = redOnField.knight.HP[targetNum-1]}
-	if(targetName == 'minipekka' && team == 'blue'){redOnField.minipekka.HP[targetNum-1] -= attackerDamage; health = redOnField.knight.HP[targetNum-1]}
+	if(targetName == 'megaknight' && team == 'blue'){redOnField.megaknight.HP[targetNum-1] -= attackerDamage; health = redOnField.megaknight.HP[targetNum-1]}
+	if(targetName == 'minipekka' && team == 'blue'){redOnField.minipekka.HP[targetNum-1] -= attackerDamage; health = redOnField.minipekka.HP[targetNum-1]}
+	if((targetName == 'castleKing' || targetName == 'castlePrincess') && team == 'blue'){redOnField.castles.HP[targetNum-1] -= attackerDamage; health = redOnField.castles.HP[targetNum-1]}
 	
 	if(targetName == 'knight' && team == 'red'){blueOnField.knight.HP[targetNum-1] -= attackerDamage; health = blueOnField.knight.HP[targetNum-1]}
 	if(targetName == 'megaknight' && team == 'red'){blueOnField.megaknight.HP[targetNum-1] -= attackerDamage; health = blueOnField.megaknight.HP[targetNum-1]}
 	if(targetName == 'minipekka' && team == 'red'){blueOnField.minipekka.HP[targetNum-1] -= attackerDamage; health = blueOnField.minipekka.HP[targetNum-1]}
+	if((targetName == 'castleKing' || targetName == 'castlePrincess') && team == 'red'){blueOnField.castles.HP[targetNum-1] -= attackerDamage; health = blueOnField.castles.HP[targetNum-1]}
 	const notTeam = team == 'blue' ? 'red' : 'blue'
 	if(health <= 0){removeCard(targetName,targetNum-1,notTeam);}
 }
@@ -497,12 +578,16 @@ function getAttkSpeed(name){
 	if(name == 'knight'){return cards.knight.attackSpeed;}
 	if(name == 'megaknight'){return cards.megaknight.attackSpeed;}
 	if(name == 'minipekka'){return cards.minipekka.attackSpeed;}
+	if(name == 'castleKing'){return cards.castle.king.attackSpeed;}
+	if(name == 'castlePrincess'){return cards.castle.king.attackSpeed;}
 }
 
 function getDamage(name){
 	if(name == 'knight'){return cards.knight.damage;}
 	if(name == 'megaknight'){return cards.megaknight.damage;}
 	if(name == 'minipekka'){return cards.minipekka.damage;}
+	if(name == 'castleKing'){return cards.castle.king.damage;}
+	if(name == 'castlePrincess'){return cards.castle.king.damage;}
 }
 
 function checkAttacks(){
@@ -524,10 +609,29 @@ function checkAttacks(){
 			attack(blueOnField.minipekka.ids[i],getClosest(blueOnField.minipekka.ids[i],'blue'),'blue');
 		} 
 	}
+
+	for(i=0;i<redOnField.knight.ids.length;i++){
+		if(redOnField.knight.ids[i] == null){continue;}
+		if(findDistance(redOnField.knight.ids[i], getClosest(redOnField.knight.ids[i],'red')) <= getRange(redOnField.knight.ids[i])){
+			attack(redOnField.knight.ids[i],getClosest(redOnField.knight.ids[i],'red'),'red');
+		} 
+	}
+	for(i=0;i<redOnField.megaknight.ids.length;i++){
+		if(redOnField.megaknight.ids[i] == null){continue;}
+		if(findDistance(redOnField.megaknight.ids[i], getClosest(redOnField.megaknight.ids[i],'red')) <= getRange(redOnField.megaknight.ids[i])){
+			attack(redOnField.megaknight.ids[i],getClosest(redOnField.megaknight.ids[i],'red'),'red');
+		} 
+	}
+	for(i=0;i<redOnField.minipekka.ids.length;i++){
+		if(redOnField.minipekka.ids[i] == null){continue;}
+		if(findDistance(redOnField.minipekka.ids[i], getClosest(redOnField.minipekka.ids[i],'red')) <= getRange(redOnField.minipekka.ids[i])){
+			attack(redOnField.minipekka.ids[i],getClosest(redOnField.minipekka.ids[i],'red'),'red');
+		} 
+	}
 }
 
 function getClosest(element,team){
-	let closestId = redOnField.castles.ids[0];
+	let closestId = blueOnField.castles.ids[0];
 	if(team=='blue'){
 		let closest = findDistance(element,redOnField.castles.ids[0]);
 		for(i=0;i<redOnField.castles.ids.length;i++){
@@ -541,6 +645,22 @@ function getClosest(element,team){
 		}
 		for(i=0;i<redOnField.minipekka.ids.length;i++){
 			if(closest > findDistance(element,redOnField.minipekka.ids[i])){closest = findDistance(element,redOnField.minipekka.ids[i]); closestId = redOnField.minipekka.ids[i];}
+		}
+	}
+
+	if(team=='red'){
+		let closest = findDistance(element,blueOnField.castles.ids[0]);
+		for(i=0;i<blueOnField.castles.ids.length;i++){
+			if(closest > findDistance(element,blueOnField.castles.ids[i])){closest = findDistance(element,blueOnField.castles.ids[i]); closestId = blueOnField.castles.ids[i];}
+		}
+		for(i=0;i<blueOnField.knight.ids.length;i++){
+			if(closest > findDistance(element,blueOnField.knight.ids[i])){closest = findDistance(element,blueOnField.knight.ids[i]); closestId = blueOnField.knight.ids[i];}
+		}
+		for(i=0;i<blueOnField.megaknight.ids.length;i++){
+			if(closest > findDistance(element,blueOnField.megaknight.ids[i])){closest = findDistance(element,blueOnField.megaknight.ids[i]); closestId = blueOnField.megaknight.ids[i];}
+		}
+		for(i=0;i<blueOnField.minipekka.ids.length;i++){
+			if(closest > findDistance(element,blueOnField.minipekka.ids[i])){closest = findDistance(element,blueOnField.minipekka.ids[i]); closestId = blueOnField.minipekka.ids[i];}
 		}
 	}
 	return closestId;
@@ -557,16 +677,36 @@ function removeCard(name,number,team){
 	if(name == 'knight' && team == 'blue'){blueOnField.knight.ids[number].remove(); blueOnField.knight.ids[number] = null;}
 	if(name == 'megaknight' && team == 'blue'){blueOnField.megaknight.ids[number].remove(); blueOnField.megaknight.ids[number] = null;}
 	if(name == 'minipekka' && team == 'blue'){blueOnField.minipekka.ids[number].remove(); blueOnField.minipekka.ids[number] = null;}
+	if((name == 'castleKing' || name == 'castlePrincess') && team == 'blue'){blueOnField.castles.ids[number].remove(); blueOnField.castles.ids[number] = null;}
 	
 	if(name == 'knight' && team == 'red'){redOnField.knight.ids[number].remove(); redOnField.knight.ids[number] = null;}
 	if(name == 'megaknight' && team == 'red'){redOnField.megaknight.ids[number].remove(); redOnField.megaknight.ids[number] = null;}
 	if(name == 'minipekka' && team == 'red'){redOnField.minipekka.ids[number].remove(); redOnField.minipekka.ids[number] = null;}
+	if((name == 'castleKing' || name == 'castlePrincess') && team == 'red'){redOnField.castles.ids[number].remove(); redOnField.castles.ids[number] = null;}
 }
 
+function addCastles(){
+	x = ['747px','863px','633px','747px','633px','863px']
+	
+	const element = document.createElement('img');
+	element.src = image;
+	element.style.top = y;
+	element.style.left = x;
+	element.style.width = '2%';
+	element.draggable = false;
+	element.style.position = 'absolute';
+	divs.game.appendChild(element);
+	element.id = name + (blueOnField.knight.ids.length + 1);
+}
+//addCastles()
 //Adds castles
+styleElement('633px','140px','placeholder.png','castlePrincess','red');
 styleElement('747px','73px','placeholder.png','castleKing','red');
 styleElement('863px','140px','placeholder.png','castlePrincess','red');
-styleElement('633px','140px','placeholder.png','castlePrincess','red');
+
+styleElement('633px','460px','placeholder.png','castlePrincess','blue');
+styleElement('747px','510px','placeholder.png','castleKing','blue');
+styleElement('863px','460px','placeholder.png','castlePrincess','blue');
 
 styleElement('700px','250px','knight.jpeg','knight','red');
 //styleElement('900px','250px','knight.jpeg','knight','red');
