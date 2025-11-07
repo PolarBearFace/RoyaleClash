@@ -4,7 +4,7 @@ This is a clash royale rip off, made for fun while at school. Only contains (wil
   <li>Pathfinding</li>
   <li>Enemy Castles and manual enemy placement</li>
   <li>Enemy Death (mostly)</li>
-  <li>Manual enemy killing</li>
+  <li>Manual enemy killing (removed)</li>
   <li>Finishing enemy death</li>
   <li>Automatic enemy killing</li>
 </ul>
